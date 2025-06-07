@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цільнометалева Армія</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game">
+        <h1>Цільнометалева Армія</h1>
+        <div id="stats">
+            <div class="stat">Здоров'я: <span id="health">0</span></div>
+            <div class="stat">Гроші: <span id="money">0</span></div>
+            <div class="stat">Репутація: <span id="reputation">0</span></div>
+            <div class="stat">Аура: <span id="aura">0</span></div>
+            <div class="stat">Кінізм: <span id="kinism">0</span></div>
+            <div class="stat">Стрес: <span id="stress">0</span></div>
+        </div>
+        <div id="npc-icon"></div>
+        <div id="npc-name"></div>
+        <div id="text"></div>
+        <div id="choices"></div>
+    </div>
+    <!-- Військово-обліковий журнал -->
+     <div class="journal" style="display: none;">
+        <h1>Військово-обліковий журнал</h1>
+        <div class="entries">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ПІБ</th>
+                        <th>Дата народження</th>
+                        <th>Спеціальність</th>
+                        <th>Сімейний стан</th>
+                        <th>Хобі</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Шалений Іван Миколайович</td>
+                        <td>25.08.1973</td>
+                        <td>Фахівець з квантової теорії пол</td>
+                        <td>Одружений</td>
+                        <td>Любить і рибку зловить, і вудочку загубить</td>
+                    </tr>
+                    <tr>
+                        <td>Фугас Петро Дмитрович</td>
+                        <td>17.01.2002</td>
+                        <td>Драконоборець</td>
+                        <td>Неодружений</td>
+                        <td>Чемпіон світу з бобслею</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form">
+            <h2>Додати нового військовослужбовця</h2>
+            <form id="militaryForm">
+                <label for="name">ПІБ:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="dob">Дата народження:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="specialty">Спеціальність:</label>
+                <select id="specialty" name="specialty" required>
+                    <option value="Снайпер">Снайпер</option>
+                    <option value="Медик">Медик</option>
+                    <option value="Драконоборець">Драконоборець</option>
+                    <option value="Фізик">Фізик</option>
+                    <option value="Сапер">Сапер</option>
+                    <option value="Хакер">Хакер</option>
+                    <option value="Сатаніст">Сатаніст</option>
+                    <option value="Механік">Механік</option>
+                    <option value="Різноробочий">Різноробочий</option>
+                    <option value="Штучний інтелект">Штучний інтелект</option>
+                    <option value="Работяга">Работяга</option>
+                    <option value="Боксер">Боксер</option>
+                    <option value="Спиртяга">Спиртяга</option>
+                    <option value="ФОП">ФОП</option>
+                    <option value="Студент">Студент</option>
+                    <option value="Фельдшер">Фельдшер</option>
+                    <option value="Вчитель">Вчитель</option>
+                    <option value="Ентузіаст">Ентузіаст</option>
+                    <option value="HR">HR</option>                    
+                </select>
+
+                <label for="maritalStatus">Сімейний стан:</label>
+                <select id="maritalStatus" name="maritalStatus" required>
+                    <option value="одружений">Одружений</option>
+                    <option value="неодружений">Неодружений</option>
+                </select>
+                <label for="hobbies">Хобі:</label>
+                <input type="text" id="hobbies" name="hobbies" required>
+
+                <button type="submit">Додати</button>
+            </form>
+        </div>
+        <div class="welcome-message" style="display: none;">
+            Вітаємо, солдат! Ти тепер частина команди — частина корабля!
+            <div class="timer"></div>
+            <button id="retreat">Рота відбій</button>
+        </div>
+     </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+body {
+    font-family: 'VT323', monospace;
+    background-color: #1e2b18;
+    color: #c0d6a0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e2b18 25%, #22331a 50%, #1e2b18 75%);
+    background-size: 200px 200px;
+}
+#game {
+    max-width: 600px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2e3b24;
+    border: 2px solid #556b2f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #1e2b18;
+    border: 1px solid #556b2f;
+}
+
+.stat {
+    font-size: 20px;
+}
+
+.stat span {
+    transition: color 0.5s;
+}
+
+#npc-icon {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#npc-icon img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+#npc-name {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #d4ed91;
+}
+
+#text {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+button {
+    background-color: #556b2f;
+    color: #c0d6a0;
+    border: none;
+    padding: 12px;
+    margin: 5px 0px;
+    cursor: pointer;
+    width: 80%;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s, opacity 0.5s;
+}
+button:hover{
+    background-color: #6b8e23;
+}
+button:disabled {
+    background-color: #3a4a2b;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+/* Журнал */
+.journal {
+    max-width: 600px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2e3b24;
+    border: 2px solid #556b2f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.journal h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d4ed91;
+    text-transform: uppercase;
+}
+/* Таблиця записів */
+.entries {
+    margin-bottom: 20px;
+    border: 1px solid #556b2f;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+
+.entries table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    color: #c0d6a0
+}
+
+.entries th, .entries td {
+    padding: 10px;
+    border: 1px solid #556b2f;
+    text-align: left;
+}
+
+.entries th {
+    background-color: #1e2b18;
+    color: #d4ed91;
+    text-transform: uppercase;
+}
+
+.entries td {
+    background-color: #2e3b24;
+}
+
+.entry {
+    padding: 10px;
+    border-bottom: 1px solid #556b2f;
+    font-size: 18px;
+    color: #c0d6a0;
+}
+
+.entry:last-child {
+    border-bottom: none;
+}
+
+.entries tr:nth-child(even) {
+    background-color: #26321d;
+}
+
+.entries tr:hover {
+    background-color: #3a4a2b;
+}
+/* Форма */
+.form {
+    margin-top: 20px;
+}
+
+.form h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #d4ed91;
+    text-transform: uppercase;
+}
+
+.form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #c0d6a0;
+}
+
+.form input,
+.form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #556b2f;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #1e2b18;
+    color: #c0d6a0;
+    font-family: 'VT323', monospace;
+}
+
+.form button {
+    background-color: #556b2f;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100px;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.form button:hover {
+    background-color: #6b8e23;
+}
+
+.form button:disabled {
+    background-color: #3a4a2b;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Привітання */
+.welcome-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1e2b18;
+    border: 1px solid #556b2f;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: #d4ed91;
+}
+
+.timer {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #c0d6a0;
+}
+
+@media (max-width: 600px) {
+    #stats {
+        grid-template-columns: 1fr;
+    }
+    #text, .stat {
+        font-size: 18px;
+    }
+    #npc-name {
+        font-size: 20px;
+    }
+    button, .form button {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .journal h1 {
+        font-size: 20px;
+    }
+    .entries table, .form label {
+        font-size: 14px;
+    }
+    .entries th, .entries td {
+        padding: 8px;
+    }
+}
