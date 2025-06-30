@@ -3,5 +3,20 @@
     "name": "Старший капітан",
     "icon": "images/captain.jpg",
     "greetings": "Ти охренів, солдат! Нічого змінити не можна, кінь тобі копитом в грудь. Три наряди поза чергою",
-    "hapiness": 0
-}]
+    "happiness": 0
+},
+{
+    "id": "sergeant",
+    "name": "Сержант TRex",
+    "icon": "images/sergeant.png",
+    "greetings": "Шикуємось на підвіконнику!",
+    "happiness": -15
+},
+{
+    "id": "Vzvodnuy",
+    "name": "Позивний Батя",
+    "icon": "images/sergeant.png",
+    "greetings": "Тепер я для вас і мама, і тато, і улюблене пиво!",
+    "happiness": 1
+}
+]
