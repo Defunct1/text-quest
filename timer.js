@@ -25,3 +25,11 @@ export function startTimer() {
 
   updateTimer(); // без цього нічого не стартує
 }
+export function waitRandomTime(min = 1000, max = 5000) {
+  const duration = Math.floor(Math.random() * (max - min + 1)) + min;
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, duration);
+  });
+}

@@ -18,7 +18,7 @@ export const scenes = {
     },
     fate: {
       npcId: "captain",
-      text: "Обери свою долю, солдат!",
+      text: "Обери свою долю!",
       choices: [
         { text: "Хочу вибрати інше", stats: { health: -2, reputation: -1, stress: 3 }, npcEffect: { id: "captain", happiness: -10 }, next: "fate_punish" },
         { text: "Прийняти свою долю", next: "journal" }
@@ -28,13 +28,21 @@ export const scenes = {
       npcId: "captain",
       text: "Нічого змінити не можна, кінь тобі копитом в грудь! Три наряди поза чергою!",
       choices: [
-        { text: "Прийняти свою долю", next: "journal" }
+        { text: "Слухаюсь", next: "journal" }
       ]
     },
     journal: {
       npcId: "captain",
       text: "Заповни журнал, солдат! Треба внести свої дані.",
       choices: []
-    }
+    },
+    retreatEscapePunish : {
+      npcId: "shkaralupa",
+      text: "Стій, куди, бляха пішов по помитому? Ти що, думаєш, що втечеш від армії? Три наряди поза чергою!",
+      choices: [
+        { text: "Слухаюсь, відставити!", next: "intro" }
+      ]
+    }    
   };
+  
   

@@ -30,12 +30,14 @@ export function showScene(sceneId, npcs) {
       npcName.textContent = npc.name;
     }
   }
+scene.choices.forEach(choice => {
+  const button = document.createElement("button");
+  button.textContent = choice.text;
 
-  scene.choices.forEach(choice => {
-    const button = document.createElement("button");
-    button.textContent = choice.text;
+  if (typeof choice.onclick === "function") {
+    button.onclick = choice.onclick;
+  } else {
     button.onclick = () => {
-      console.log("Button clicked, next:", choice.next);
       if (choice.stats) {
         for (const key in choice.stats) {
           if (player.stats[key] !== undefined) {
@@ -43,16 +45,22 @@ export function showScene(sceneId, npcs) {
           }
         }
       }
+
       if (choice.npcEffect) {
         const npc = npcs.find(n => n.id === choice.npcEffect.id);
         if (npc) npc.happiness += choice.npcEffect.happiness;
       }
-      player.currentScene = choice.next;
-      updateStats();
-      showScene(choice.next, npcs); // <== передаємо npcs далі
+
+      if (choice.next) {
+        player.currentScene = choice.next;
+        updateStats();
+        showScene(choice.next, npcs);
+      }
     };
-    choices.appendChild(button);
-  });
+  }
+  choices.appendChild(button);
+});
+
 }
 
 export function updateStats() {

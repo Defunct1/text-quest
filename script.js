@@ -2,7 +2,7 @@ import { player } from "./player.js";
 import { scenes } from "./scenes.js";
 import { getStatColor, isAtLeast18 } from "./utils.js";
 import { updateStats, showScene } from "./ui.js";
-import { startTimer } from "./timer.js";
+import { startTimer, waitRandomTime } from "./timer.js";
 import { applySpecialtyBonus } from "./bonuses.js";
 
 let npcs = []; // Завантажиться з npc.json
@@ -32,7 +32,7 @@ form.addEventListener("submit", function (e) {
   }
 
   if (!hobbyPattern.test(hobbies)) {
-    alert("Питань нема, ти фахівець, але давай менше тексту");
+    alert("Питань нема, ти фахівець, але давай по суті");
     return;
   }
 
@@ -68,24 +68,35 @@ form.addEventListener("submit", function (e) {
 
   setTimeout(() => {
     const retreatButton = document.getElementById("retreat");
-    if (retreatButton) {
-      retreatButton.onclick = () => {
-        startTimer();
-        scenes.journal.choices = [
-          { text: "Служити за спеціальністю", stats: { reputation: 10, stress: 5 }, next: "training" },
-          { text: "Взяти папірці і втекти", stats: { kinism: 10, stress: 10, reputation: -5 }, next: "escape" }
-        ];
-        showScene("journal", npcs);
-      };
-    } else {
+  
+    if (!retreatButton) {
       console.warn("Кнопка 'Рота відбій' не знайдена в DOM!");
+      return;
     }
+  
+    retreatButton.onclick = () => {
+      startTimer();
+  
+      // 👇 Задаємо сцени ПЕРЕД викликом showScene
+      scenes.journal.choices = [
+        {
+          text: "Взяти папірці і втекти",
+          onclick: async () => {
+            document.getElementById("text").textContent = "Ти вирішив втекти з армії, але це не так просто...";
+            await waitRandomTime(2000, 5000);
+            player.currentScene = "retreatEscapePunish";
+            updateStats();
+            showScene("retreatEscapePunish", npcs);
+          }
+        }
+      ];
+  
+      // ✅ Відображення сцени після налаштування
+      showScene("journal", npcs);
+    };
   }, 0);
-
-  updateStats();
-  form.reset();
+  
 });
-
 // Додаємо сцени вручну
 scenes.training = {
   npcId: "captain",

@@ -2,21 +2,24 @@
     "id": "captain",
     "name": "Старший капітан",
     "icon": "images/captain.jpg",
-    "greetings": "Ти охренів, солдат! Нічого змінити не можна, кінь тобі копитом в грудь. Три наряди поза чергою",
     "happiness": 0
 },
 {
     "id": "sergeant",
     "name": "Сержант TRex",
     "icon": "images/sergeant.png",
-    "greetings": "Шикуємось на підвіконнику!",
     "happiness": -15
 },
 {
     "id": "Vzvodnuy",
     "name": "Позивний Батя",
     "icon": "images/sergeant.png",
-    "greetings": "Тепер я для вас і мама, і тато, і улюблене пиво!",
     "happiness": 1
+},
+{
+    "id": "shkaralupa",
+    "name": "Замполіт Шкарлупа",
+    "icon": "images/shkaralupa.jpg",
+    "happiness": 10
 }
 ]
